@@ -1,12 +1,17 @@
 import { PMBookingsList } from "@/PMs/BookingsList/BookingsListPM";
 
 import { styles } from "./BookingsListStyles";
-import { View } from "react-native";
+import { KeyboardAvoidingView, Platform } from "react-native";
 
 interface propsType {
 	pm: PMBookingsList;
 }
 
 export default function BookingsListView({ pm }: propsType) {
-	return <View style={styles.main_container}></View>;
+	return (
+		<KeyboardAvoidingView
+			behavior={Platform.OS === "ios" ? "padding" : "height"}
+			style={styles.main_container}
+		></KeyboardAvoidingView>
+	);
 }

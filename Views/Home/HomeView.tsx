@@ -1,7 +1,7 @@
 import { PMHome } from "@/PMs/Home/HomePM";
 
 import { styles } from "./HomeStyles";
-import { Text, View } from "react-native";
+import { KeyboardAvoidingView, Platform } from "react-native";
 
 interface propsType {
 	pm: PMHome;
@@ -9,8 +9,9 @@ interface propsType {
 
 export default function HomeView({ pm }: propsType) {
 	return (
-		<View style={styles.main_container}>
-			<Text>My Home</Text>
-		</View>
+		<KeyboardAvoidingView
+			behavior={Platform.OS === "ios" ? "padding" : "height"}
+			style={styles.main_container}
+		></KeyboardAvoidingView>
 	);
 }

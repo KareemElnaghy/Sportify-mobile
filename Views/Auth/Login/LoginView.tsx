@@ -1,24 +1,42 @@
 import { PMLogin } from "@/PMs/Auth/LoginPM";
 
-// import "./AdminLoginStyle.css";
 import { styles } from "./LoginStyles";
-import { Image, Pressable, Text, TextInput, View } from "react-native";
+import {
+	Image,
+	KeyboardAvoidingView,
+	Platform,
+	Text,
+	TextInput,
+	TouchableOpacity,
+	View,
+} from "react-native";
 import Checkbox from "expo-checkbox";
+import { isValidElement, useState } from "react";
+
+import Eye from "@/assets/svgs/eye.svg";
+import EyeOff from "@/assets/svgs/eye-off.svg";
 
 interface propsType {
 	pm: PMLogin;
 }
 
 export default function LoginView({ pm }: propsType) {
+	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
 	return (
-		<View style={styles.main_container}>
-			{/* <Image source={} src="/" /> */}
-			{/* <div className="logo">
-				<img src="/dumble.png" alt="logo" />
-			</div> */}
+		<KeyboardAvoidingView
+			behavior={Platform.OS === "ios" ? "padding" : "height"}
+			style={styles.main_container}
+		>
+			<Image
+				resizeMode={"contain"}
+				source={require("@/assets/images/Sportify.png")}
+				style={styles.sportifyLogo}
+			/>
 			<TextInput
-				// style={styles.}
+				style={styles.text_input}
 				placeholder="AUC Email"
+				placeholderTextColor={"gray"}
 				className="input-field"
 				value={pm.email}
 				onChangeText={(t) => {
@@ -26,32 +44,53 @@ export default function LoginView({ pm }: propsType) {
 					pm.onEmailChange();
 				}}
 			/>
-			<View className="password-container">
+			<View
+				style={{ ...styles.text_input, ...styles.password_input_bounding_box }}
+			>
 				<TextInput
+					style={styles.text_input_password}
 					placeholder="Password"
-					className="input-field"
+					placeholderTextColor={"gray"}
+					secureTextEntry={!isPasswordVisible}
 					value={pm.password}
 					onChangeText={(t) => {
 						pm.password = t;
 						pm.onPasswordChange();
 					}}
 				/>
-				{/* <span className="show-password"></span> */}
+				<TouchableOpacity
+					onPress={() => {
+						setIsPasswordVisible((current) => !current);
+					}}
+				>
+					{isPasswordVisible ? (
+						<EyeOff width={30} height={30} />
+					) : (
+						<Eye width={30} height={30} />
+					)}
+				</TouchableOpacity>
 			</View>
-			<View className="remember-me">
+			<View style={styles.remember_me}>
 				<Checkbox
 					value={pm.rememberme}
 					onValueChange={(v) => {
 						pm.rememberme = v;
 						pm.onRememberChange();
 					}}
-					color={pm.rememberme ? "#4630EB" : undefined}
+					color={pm.rememberme ? "#4067EC" : undefined}
 				/>
-				<Text>Remember Me</Text>
+				<Text style={styles.remember_me_text}>Remember Me</Text>
 			</View>
-			<Pressable onPress={pm.onLOGIN}>
-				<Text>LOGIN</Text>
-			</Pressable>
-		</View>
+			<TouchableOpacity style={styles.login_btn} onPress={pm.onLOGIN}>
+				<Text style={styles.login_btn_text}>Login</Text>
+			</TouchableOpacity>
+
+			<View style={styles.signup_msg}>
+				<Text style={styles.signup_msg_txt}>Don't have an account yet? </Text>
+				<TouchableOpacity style={styles.signup_btn} onPress={pm.onSIGNUP}>
+					<Text style={styles.signup_btn_txt}>Signup</Text>
+				</TouchableOpacity>
+			</View>
+		</KeyboardAvoidingView>
 	);
 }

@@ -3,9 +3,10 @@ export interface PMLogin {
 	onEmailChange: () => void;
 	password: string;
 	onPasswordChange: () => void;
-	onLOGIN: () => void;
 	rememberme: boolean;
 	onRememberChange: () => void;
+	onLOGIN: () => void;
+	onSIGNUP: () => void;
 }
 
 export const default_PMLogin: PMLogin = {
@@ -13,7 +14,8 @@ export const default_PMLogin: PMLogin = {
 	onEmailChange: () => {},
 	password: "",
 	onPasswordChange: () => {},
-	onLOGIN: () => {},
 	rememberme: false,
 	onRememberChange: () => {},
+	onLOGIN: () => {},
+	onSIGNUP: () => {},
 };
