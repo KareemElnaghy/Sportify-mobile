@@ -30,7 +30,7 @@ export default function HomeView({ pm }: propsType) {
 		>
 			<View style = {styles.container}>
 				<Profile width={38.25} height={38.25}/>
-				<Text style={styles.header}>Hi, {pm.username}Eman Hegab!</Text>
+				<Text style={styles.header}>Hi, {pm.username}!</Text>
 			</View>
 
 			<View 
@@ -109,17 +109,6 @@ export default function HomeView({ pm }: propsType) {
 					<Text style={styles.list_text}>Upcoming Reservations</Text>
 				</TouchableOpacity>
 			</View>
-
-
-
-
-
-
-
-
-
-
-
 		</KeyboardAvoidingView>
 	);
 }
