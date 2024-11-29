@@ -14,6 +14,29 @@ export const styles = StyleSheet.create({
 		top: 90,
 		left: 30,
 		fontSize: 30,
-	}
+	},
+	
+	list_item: {
+		flexDirection: "row",
+		alignItems: "center",
+		padding: 10,
+	},
+	list_icon: {
+		marginRight: 10,
+	},
+	list_text: {
+		fontSize: 18,
+		color: "black",
+	},
+	container: {
+		flex : 1,
+		flexDirection: "row",
+		alignItems: "center",
+		padding: 10,
+	},
+	username_text: {
+		fontSize: 20,
+		color: "black",
+	},
 
 });

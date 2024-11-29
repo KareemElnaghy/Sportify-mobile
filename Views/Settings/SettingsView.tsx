@@ -12,12 +12,12 @@ import {
  } from "react-native";
 
 // import { KeyboardAvoidingView, Platform } from "react-native";
-import profile from "@/assets/svgs/profile.svg";
-import lock from "@/assets/svgs/lock.svg";
-import shield from "@/assets/svgs/shield.svg";
-import location from "@/assets/svgs/location.svg";
-import help from "@/assets/svgs/help.svg";
-import logout from "@/assets/svgs/logout.svg";
+import Profile from "@/assets/svgs/profile.svg";
+import Lock from "@/assets/svgs/lock.svg";
+import Shield from "@/assets/svgs/shield.svg";
+import Location from "@/assets/svgs/location.svg";
+import Help from "@/assets/svgs/help.svg";
+import Logout from "@/assets/svgs/logout.svg";
 
 
 interface propsType {
@@ -32,7 +32,33 @@ export default function SettingsView({ pm }: propsType) {
 		>
 			<Text style = {styles.header}>Settings</Text>
 
-			
+			<View style={styles.container}>
+				<Text style={styles.username_text}>{pm.username}</Text>
+				<TouchableOpacity>
+					<Profile style = {styles.list_icon}width={30} height={30} />
+					<Text style={styles.list_text}>Edit Profile</Text>
+
+					<Lock style = {styles.list_icon}width={30} height={30} />
+					<Text style={styles.list_text}>Change Password</Text>
+
+					<Shield style = {styles.list_icon}width={30} height={30} />
+					<Text style={styles.list_text}>About</Text>
+
+					<Location style = {styles.list_icon}width={30} height={30} />
+					<Text style={styles.list_text}>Location</Text>
+
+					<Help style = {styles.list_icon}width={30} height={30} />
+					<Text style={styles.list_text}>Help & Support</Text>
+
+					<Logout style = {styles.list_icon}width={30} height={30} />
+					<Text style={styles.list_text}>Logout</Text>
+				</TouchableOpacity>
+
+				
+				
+			</View>
+
+
 
 
 
