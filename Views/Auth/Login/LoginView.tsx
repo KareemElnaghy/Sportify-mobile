@@ -37,7 +37,6 @@ export default function LoginView({ pm }: propsType) {
 				style={styles.text_input}
 				placeholder="AUC Email"
 				placeholderTextColor={"gray"}
-				className="input-field"
 				value={pm.email}
 				onChangeText={(t) => {
 					pm.email = t;

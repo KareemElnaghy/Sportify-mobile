@@ -3,8 +3,8 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
 	main_container: {
 		backgroundColor: "#374C7A",
-		flex: 1,
-		gap: 20,
+		flex: 1, // Take up the whole screen
+		gap: 20, // Spacing between elements
 		justifyContent: "center",
 		alignItems: "center",
 	},
@@ -26,13 +26,13 @@ export const styles = StyleSheet.create({
 	},
 
 	password_input_bounding_box: {
-		flexDirection: "row",
+		flexDirection: "row", 
 		justifyContent: "center",
 		alignItems: "center",
 	},
 
 	text_input_password: {
-		// backgroundColor: "green",
+		// backgroundColor: "green", 
 		flex: 1,
 		color: "black",
 		fontSize: 18,
