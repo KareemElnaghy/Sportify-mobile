@@ -1,8 +1,11 @@
 import { pageParamsObj } from "@/libs/Utils/RouterLib";
 import { routerNav } from "@/libs/Utils/RouterLib";
 import { PMCourtDetails } from "@/PMs/CourtDetails/CourtDetailsPM";
+import Court from "@/types/Court";
 
-export interface CourtDetailsParams extends pageParamsObj {}
+export interface CourtDetailsParams extends pageParamsObj {
+  court: Court;
+}
 
 export interface CourtDetailsModel {
   setup: (params: CourtDetailsParams | {}) => Promise<void>;
@@ -15,7 +18,7 @@ export function getCourtDetailsModel(
   pm: () => PMCourtDetails
 ): CourtDetailsModel {
   const model: CourtDetailsModel = {
-    setup: async (params: CourtDetailsParams) => {
+    setup: async (params: CourtDetailsParams | {}) => {
       pm().courtDetails = {
         courtDetails: "Court Details",
         courtName: "Court Name",

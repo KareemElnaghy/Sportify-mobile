@@ -9,7 +9,7 @@ export interface CourtsPageParams extends pageParamsObj {}
 
 export interface CourtsListModel {
   setup: (params: CourtsPageParams | {}) => Promise<void>;
-  ViewCourt: () => void;
+  ViewCourt: (court: Court) => void;
   booking: (index: number) => void;
   onBack: () => void;
   courtsList: Court[];
@@ -23,7 +23,7 @@ export interface CourtsListModel {
 
 export function getCourtsListModel(pm: () => PMCourtsList): CourtsListModel {
   const model: CourtsListModel = {
-    setup: async (params: CourtsPageParams) => {
+    setup: async (params: CourtsPageParams | {}) => {
       pm().ViewCourt = model.ViewCourt;
       pm().booking = model.booking;
       pm().onBack = model.onBack;
@@ -38,8 +38,8 @@ export function getCourtsListModel(pm: () => PMCourtsList): CourtsListModel {
       model.courtsList = courtsList;
       pm().courtsList = model.courtsList;
     },
-    ViewCourt: function (): void {
-      routerNav.push("courtDetails");
+    ViewCourt: function (court: Court): void {
+      routerNav.goCourtDetails({ court: court });
     },
     booking: function (index: number): void {
       routerNav.push("reserve");
