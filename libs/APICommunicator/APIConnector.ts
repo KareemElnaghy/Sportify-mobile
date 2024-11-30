@@ -103,6 +103,9 @@ export const APIConnector: APIConnectorType = {
 		retryCount?: number,
 		noFails: boolean = false
 	): Promise<APIResponse<any>> {
+		if (process.env.EXPO_PUBLIC_ENVIROMENT_MODE == "frontend")
+			throw "No Network, Running Frontend Environment";
+
 		if (retryCount === undefined) retryCount = maxAPIRetyCount;
 		if (retryCount <= 0) throw "Out of Retries";
 
