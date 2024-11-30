@@ -24,7 +24,8 @@ export function getLoginModel(pm: () => PMLogin): LoginModel {
 		},
 		onLogin: async () => {
 			console.log(environment);
-			if (environment == "frontend") routerNav.goAndReset("home");
+			if (environment == "frontend" || environment == "dev")
+				routerNav.goAndReset("home");
 
 			// handle login call
 			const res = await loginAPI({
