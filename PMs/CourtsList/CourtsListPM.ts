@@ -1,20 +1,15 @@
-interface CourtObj{
-    courtName: string;
-    courtLocation: string;
-    availability: string;
-    isAvailable: boolean;
-}
+import Court from "@/types/Court";
 
 export interface PMCourtsList {
-    courtsList: CourtObj[];
-    ViewCourt: () => void;
-    booking: (index : number) => void; 
-    onBack: () => void;
+  courtsList: Court[];
+  ViewCourt: () => void;
+  booking: (index: number) => void;
+  onBack: () => void;
 }
 
 export const default_PMCourtsList: PMCourtsList = {
-    courtsList: [],
-    ViewCourt: () => {},
-    booking: () => {},
-    onBack: () => {}
+  courtsList: [],
+  ViewCourt: () => {},
+  booking: () => {},
+  onBack: () => {},
 };
