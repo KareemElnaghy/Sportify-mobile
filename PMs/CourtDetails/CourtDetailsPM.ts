@@ -1,3 +1,23 @@
-export interface PMCourtDetails {}
+interface CourtObj {
+    courtDetails: string;
+    courtName: string;
+    courtLocation: string;
+}
 
-export const default_PMCourtDetails: PMCourtDetails = {};
+export interface PMCourtDetails {
+    courtDetails: CourtObj;
+    onBack: () => void;
+    onBook: () => void;
+    onNavigate: () => void;
+}
+
+export const default_PMCourtDetails: PMCourtDetails = {
+    courtDetails: {
+        courtDetails: "",
+        courtName: "",
+        courtLocation: ""
+    },
+    onBack: () => {},
+    onBook: () => {},
+    onNavigate: () => {}
+};

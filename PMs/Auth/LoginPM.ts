@@ -1,5 +1,5 @@
 export interface PMLogin {
-	email: string;
+	email: string; 
 	onEmailChange: () => void;
 	password: string;
 	onPasswordChange: () => void;
