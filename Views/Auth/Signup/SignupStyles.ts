@@ -27,6 +27,7 @@ export const styles = StyleSheet.create({
 		flexDirection: "row", 
 		justifyContent: "center",
 		alignItems: "center",
+		height: 42,
 	},
 
 	text_input_password: {
