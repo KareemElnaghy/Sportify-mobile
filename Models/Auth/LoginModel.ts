@@ -4,6 +4,7 @@ import { getAuthModel } from "../General/AuthModel";
 import { routerNav } from "@/libs/Utils/RouterLib";
 import { StorageHandler } from "@/libs/Utils/Storage";
 
+const environment = process.env.EXPO_PUBLIC_ENVIROMENT_MODE || "dev";
 export interface LoginModel {
 	setup: () => Promise<void>;
 	onLogin: () => Promise<void>;
@@ -22,8 +23,8 @@ export function getLoginModel(pm: () => PMLogin): LoginModel {
 			model.loadRemember();
 		},
 		onLogin: async () => {
-			if (process.env.EXPO_PUBLIC_ENVIROMENT_MODE == "frontned")
-				routerNav.goAndReset("home");
+			console.log(environment);
+			if (environment == "frontend") routerNav.goAndReset("home");
 
 			// handle login call
 			const res = await loginAPI({
