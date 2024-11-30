@@ -1,12 +1,15 @@
 import { loginAPI } from "@/libs/APICommunicator/Auth/LoginAPI";
 import { PMLogin } from "@/PMs/Auth/LoginPM";
 import { getAuthModel } from "../General/AuthModel";
-import { routerNav } from "@/libs/Utils/RouterLib";
+import { pageParamsObj, routerNav } from "@/libs/Utils/RouterLib";
 import { StorageHandler } from "@/libs/Utils/Storage";
 
 const environment = process.env.EXPO_PUBLIC_ENVIROMENT_MODE || "dev";
+
+export interface LoginPageParams extends pageParamsObj {}
+
 export interface LoginModel {
-	setup: () => Promise<void>;
+	setup: (params: LoginPageParams | {}) => Promise<void>;
 	onLogin: () => Promise<void>;
 	onSignup: () => void;
 
@@ -16,14 +19,13 @@ export interface LoginModel {
 
 export function getLoginModel(pm: () => PMLogin): LoginModel {
 	const model: LoginModel = {
-		setup: async () => {
+		setup: async (params: LoginPageParams | {}) => {
 			pm().onLOGIN = model.onLogin;
 			pm().onSIGNUP = model.onSignup;
 
 			model.loadRemember();
 		},
 		onLogin: async () => {
-			console.log(environment);
 			if (environment == "frontend" || environment == "dev")
 				routerNav.goAndReset("home");
 

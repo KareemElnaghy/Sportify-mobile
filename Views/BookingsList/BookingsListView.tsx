@@ -2,6 +2,7 @@ import { PMBookingsList } from "@/PMs/BookingsList/BookingsListPM";
 
 import { styles } from "./BookingsListStyles";
 import { KeyboardAvoidingView, Platform } from "react-native";
+import { pageParamsObj } from "@/libs/Utils/RouterLib";
 
 interface propsType {
 	pm: PMBookingsList;

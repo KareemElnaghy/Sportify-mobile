@@ -1,7 +1,10 @@
+import { pageParamsObj } from "@/libs/Utils/RouterLib";
 import { PMSettings } from "@/PMs/Settings/SettingsPM";
 
+export interface SettingsPageParams extends pageParamsObj {}
+
 export interface SettingsModel {
-	setup: () => Promise<void>;
+	setup: (params: SettingsPageParams | {}) => Promise<void>;
 	username: string;
 	EditProfile: () => void;
 	ChangePassword: () => void;
@@ -12,7 +15,7 @@ export interface SettingsModel {
 }
 export function getSettingsModel(pm: () => PMSettings): SettingsModel {
 	const model: SettingsModel = {
-		setup: async () => {
+		setup: async (params: SettingsPageParams | {}) => {
 			pm().username = model.username;
 			pm().EditProfile = model.EditProfile;
 			pm().ChangePassword = model.ChangePassword;
