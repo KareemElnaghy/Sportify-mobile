@@ -30,27 +30,20 @@ export const styles = StyleSheet.create({
 		height: 120,
 		width: 350,
 		borderWidth: 1,
-		borderColor: "black",
+		borderColor: "#374C7A",
 		borderRadius: 20,
 		padding: 10,
 		backgroundColor: "#374C7A",
-		position: "absolute",
-	},
-	container_top: {
-		top: 190,
 		left: 20,
+		paddingBottom: 30,
 	},
-	container_second:{
-		top: 320,
-		left: 20,
-	},
-	container_third:{
-		top: 450,
-		left: 20,
-	},
-	container_fourth:{
-		top: 580,
-		left: 20,
+	layout:{
+		paddingTop: 50,
+		flex: 1,
+		justifyContent: "flex-start",
+		top: 160,
+		width: "100%",
+		gap: 10,
 	},
 	court_title: {	
 		color: "white",
@@ -120,5 +113,7 @@ export const styles = StyleSheet.create({
 		fontFamily: "Poppins",
 		fontWeight: "bold",
 	},
-
+	scroll:{
+		width: "100%",
+	},
 });

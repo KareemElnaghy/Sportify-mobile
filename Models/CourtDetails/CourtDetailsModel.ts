@@ -26,7 +26,7 @@ export function getCourtDetailsModel(
       pm().onNavigate = model.onNavigate;
     },
     onBack: function (): void {
-      routerNav.push("home");
+      routerNav.push("courts");
     },
     onNavigate: function (): void {
       routerNav.push("reserve");

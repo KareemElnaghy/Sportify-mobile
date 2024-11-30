@@ -9,11 +9,13 @@ export const styles = StyleSheet.create({
 		gap: 20,
 	},
 	layout:{
+		paddingTop: 10,
 		flex: 1,
-		justifyContent: "center",
+		justifyContent: "flex-start",
 		backgroundColor: "#E5E5E5",
 		top: 90,
 		width: "100%",
+		gap: 10,
 	},
 	title:{
 		top: 65,
@@ -36,9 +38,6 @@ export const styles = StyleSheet.create({
 		backgroundColor: "#374C7A",
 		left: 20,
 		paddingBottom: 0,
-	},
-	container_top: {
-		bottom: 100,
 	},
 	court_data: {	
 		color: "white",
@@ -79,13 +78,4 @@ export const styles = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "space-between",
 	},
-	container_next:{
-		bottom: 90,
-	},
-	container_third:{
-		bottom: 80,
-	},
-	container_forth:{
-		bottom: 70,
-	}
 });

@@ -101,11 +101,11 @@ export default function ReserveView({ pm }: propsType) {
 					keyExtractor={(item) => item}
 					renderItem={({ item }) => (
 						<TouchableOpacity
-						style={[
-							styles.slot,
-							selectedSlot === item && styles.selectedSlot, 
-						]}
-						onPress={() => handleSlotPress(item)}
+							style={[
+								styles.slot,
+								selectedSlot === item && styles.selectedSlot, 
+							]}
+							onPress={() => handleSlotPress(item)}
 						>
 						<Text
 							style={[

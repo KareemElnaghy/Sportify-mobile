@@ -1,10 +1,8 @@
 import { PMBookingsList } from "@/PMs/BookingsList/BookingsListPM";
 
 import { styles } from "./BookingsListStyles";
-<<<<<<< HEAD
-import { KeyboardAvoidingView, Platform } from "react-native";
+
 import { pageParamsObj } from "@/libs/Utils/RouterLib";
-=======
 import {
 	KeyboardAvoidingView,
 	Platform,
@@ -16,8 +14,7 @@ import {
   } from "react-native";
 
 import Back from "@/assets/svgs/back.svg";
-// import { KeyboardAvoidingView, Platform } from "react-native";
->>>>>>> frontend
+
 
 interface propsType {
 	pm: PMBookingsList;
@@ -42,7 +39,7 @@ export default function BookingsListView({ pm }: propsType) {
 			
 			<View style={styles.layout}>
 				<View
-					style={{ ...styles.container, ...styles.container_top }}
+					style={{ ...styles.container}}
 				>	
 					{pm.bookingsList && pm.bookingsList.length > 0 && (
 					<>
@@ -68,7 +65,7 @@ export default function BookingsListView({ pm }: propsType) {
 				</View>
 
 				<View
-					style={{ ...styles.container, ...styles.container_next }}
+					style={{ ...styles.container}}
 				>	
 					{pm.bookingsList && pm.bookingsList.length > 0 && (
 					<>
@@ -94,7 +91,7 @@ export default function BookingsListView({ pm }: propsType) {
 				</View>
 
 				<View
-					style={{ ...styles.container, ...styles.container_third }}
+					style={{ ...styles.container}}
 				>	
 					{pm.bookingsList && pm.bookingsList.length > 0 && (
 					<>
@@ -120,7 +117,7 @@ export default function BookingsListView({ pm }: propsType) {
 				</View>
 
 				<View
-					style={{ ...styles.container, ...styles.container_forth }}
+					style={{ ...styles.container}}
 				>	
 					{pm.bookingsList && pm.bookingsList.length > 0 && (
 					<>
@@ -145,17 +142,6 @@ export default function BookingsListView({ pm }: propsType) {
 					)}
 				</View>
 			</View>
-
-
-
-
-
-
-
-
-
-
-
 		</KeyboardAvoidingView>
 	);
 }
