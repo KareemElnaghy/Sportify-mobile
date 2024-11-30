@@ -1,11 +1,10 @@
 import { PMHome } from "@/PMs/Home/HomePM";
-import { Router } from "expo-router";
 
 export interface HomeModel {
 	setup: () => Promise<void>;
 }
 
-export function getHomeModel(pm: () => PMHome, router: Router): HomeModel {
+export function getHomeModel(pm: () => PMHome): HomeModel {
 	const model: HomeModel = {
 		setup: async () => {},
 	};

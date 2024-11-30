@@ -1,9 +1,14 @@
-// const crypto = require("crypto");
-import crypto from "crypto";
+import "react-native-get-random-values"; // Required for secure randomness
+import * as Crypto from "expo-crypto";
 
-export function hashObject(obj: any) {
+export async function hashObject(obj: any) {
 	const str = JSON.stringify(obj);
-	const hash = crypto.createHash("sha256");
-	hash.update(str);
-	return hash.digest("hex");
+	const hash = await Crypto.digestStringAsync(
+		Crypto.CryptoDigestAlgorithm.SHA256,
+		str,
+		{
+			encoding: Crypto.CryptoEncoding.HEX,
+		}
+	);
+	return hash;
 }

@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
 		color: "black",
 
 		width: "75%",
+		height: 50,
 		borderRadius: 12,
 		padding: 10,
 
@@ -26,13 +27,13 @@ export const styles = StyleSheet.create({
 	},
 
 	password_input_bounding_box: {
-		flexDirection: "row", 
+		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",
 	},
 
 	text_input_password: {
-		// backgroundColor: "green", 
+		// backgroundColor: "green",
 		flex: 1,
 		color: "black",
 		fontSize: 18,

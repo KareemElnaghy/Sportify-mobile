@@ -1,6 +1,6 @@
 import { jwtHandler, TokenStruct } from "@/libs/JWT/JWTHandler";
 import { UserAccount, noAuth } from "@/types/Auth";
-import { NextRequest } from "next/server";
+import { Role, RolesArray } from "@/types/Authorization/Roles";
 
 interface AuthUtilstype {
 	getUserVerify: (token: string | null) => Promise<UserAccount>;
@@ -10,11 +10,6 @@ interface AuthUtilstype {
 	parse: (userStr: string) => UserAccount;
 
 	isAuthenticated: (user: UserAccount) => boolean;
-
-	setUserOnReq: (req: NextRequest, user: UserAccount) => void;
-	getUserFromReq: (req: NextRequest) => UserAccount;
-
-	getTokenFromReq: (req: NextRequest) => string | null;
 }
 
 export const AuthUtils: AuthUtilstype = {
@@ -24,11 +19,17 @@ export const AuthUtils: AuthUtilstype = {
 		const tokenPayload = await jwtHandler.verify("Access", token);
 		if (tokenPayload == null) return noAuth;
 
+		const r: Role = RolesArray.includes(tokenPayload.body.role as Role)
+			? (tokenPayload.body.role as Role)
+			: "NoAuth";
+
+		if (r == "NoAuth") return noAuth;
+
 		return {
 			isAuth: true,
 			token: token,
 			email: tokenPayload.body.username,
-			role: tokenPayload.body.role,
+			role: r,
 		};
 	},
 
@@ -43,11 +44,15 @@ export const AuthUtils: AuthUtilstype = {
 		if (!("username" in body)) return noAuth;
 		if (!("role" in body)) return noAuth;
 
+		const r: Role = RolesArray.includes(tokenPayload["body"]["role"] as Role)
+			? (tokenPayload["body"]["role"] as Role)
+			: "NoAuth";
+
 		return {
 			isAuth: true,
 			token: token,
 			email: tokenPayload["body"]["username"],
-			role: tokenPayload["body"]["role"],
+			role: r,
 		};
 	},
 
@@ -59,24 +64,6 @@ export const AuthUtils: AuthUtilstype = {
 	},
 	parse: (userStr: string): UserAccount => {
 		return JSON.parse(userStr) as UserAccount;
-	},
-
-	setUserOnReq: (req: NextRequest, user: UserAccount): void => {
-		req.headers.set("UserAccount", JSON.stringify(user));
-	},
-
-	getUserFromReq: (req: NextRequest): UserAccount => {
-		const header = req.headers.get("UserAccount");
-		if (header == null) return noAuth;
-
-		return AuthUtils.parse(header);
-	},
-	getTokenFromReq: function (req: NextRequest): string | null {
-		const token: string | null =
-			req.headers.get("authorization") || req.headers.get("Authorization");
-		if (token !== null) return extractTokenFromAuthorization(token);
-
-		return req.cookies.get("accessToken")?.value || null;
 	},
 };
 
