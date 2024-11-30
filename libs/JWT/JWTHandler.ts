@@ -1,12 +1,7 @@
-import jwt from "jsonwebtoken";
 import * as jose from "jose";
 
 import { createId } from "../Utils/UUID";
-import {
-	Schema,
-	ValidateFunction,
-	ValidateSchema,
-} from "../Utils/TypeValidator";
+import { ValidateFunction, ValidateSchema } from "../Utils/TypeValidator";
 
 const secretKey = process.env.JWT_SECRETKEY || "";
 const currentTokenVersion = process.env.JWT_TOKENVERSION || "";

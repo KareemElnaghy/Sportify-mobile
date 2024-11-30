@@ -9,5 +9,8 @@ export default function Index() {
 		}, 10);
 	});
 
-	return <></>;
+	return (
+		// @ts-ignore
+		<></>
+	);
 }

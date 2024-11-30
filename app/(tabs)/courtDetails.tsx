@@ -6,14 +6,13 @@ import {
 } from "@/PMs/CourtDetails/CourtDetailsPM";
 import { getCourtDetailsModel } from "@/Models/CourtDetails/CourtDetailsModel";
 import CourtDetailsView from "@/Views/CourtDetails/CourtDetailsView";
-import { router } from "expo-router";
 
 export default function CourtDetailsPage() {
 	const { obj: pm, ref: pmRef } = useStateObject<PMCourtDetails>(
 		default_PMCourtDetails
 	);
 	const model = useMemo(() => {
-		const model = getCourtDetailsModel(pmRef, router);
+		const model = getCourtDetailsModel(pmRef);
 		model.setup();
 		return model;
 	}, []);

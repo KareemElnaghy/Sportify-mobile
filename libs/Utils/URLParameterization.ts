@@ -1,5 +1,3 @@
-import { NextRequest } from "next/server";
-
 export type FetchParameters = {
 	[key: string]: string | string[];
 };
@@ -50,37 +48,4 @@ export function typecaseParams<T>(
 ): T[] {
 	// return param as T[];
 	return param.map((v) => castfn(v));
-}
-
-export function extractSingleParam(
-	req: NextRequest,
-	paramName: string
-): string | null {
-	const res = extractParams(req, paramName);
-	if (res == null) return null;
-	if (typeof res == "string") return res;
-	return res[0];
-}
-
-export function extractListParams(
-	req: NextRequest,
-	paramName: string
-): string[] {
-	const res = extractParams(req, paramName);
-	if (res == null) return [];
-	if (typeof res == "string") return [res];
-	return res;
-}
-
-function extractParams(req: NextRequest, paramName: string) {
-	const params: string[] = req.nextUrl.searchParams.getAll(paramName);
-	let res: string[] = [];
-	for (let i = 0; i < params.length; i++) {
-		const tmp = verboseParameter(params[i]);
-		if (Array.isArray(tmp)) res = [...res, ...tmp];
-		else res.push(tmp);
-	}
-	if (res.length == 0) return null;
-	if (res.length == 1) return res[0];
-	return res;
 }
