@@ -1,3 +1,4 @@
+import { routerNav } from "@/libs/Utils/RouterLib";
 import { PMCourtsList } from "@/PMs/CourtsList/CourtsListPM";
 
 
@@ -16,13 +17,13 @@ export function getCourtsListModel(pm: () => PMCourtsList): CourtsListModel {
 			pm().onBack = model.onBack;
 		},
 		ViewCourt: function (): void {
-			router.push("/(tabs)/courtDetails");
+			routerNav.push("courtDetails");
 		},
 		booking: function (index: number): void {
-			router.push("/(tabs)/reserve");
+			routerNav.push("reserve");
 		},
 		onBack: function (): void {
-			router.push("/(tabs)/home");
+			routerNav.push("home");
 		},
 	};
 

@@ -1,4 +1,6 @@
+import { routerNav } from "@/libs/Utils/RouterLib";
 import { PMCourtDetails } from "@/PMs/CourtDetails/CourtDetailsPM";
+import { router } from "expo-router";
 
 export interface CourtDetailsModel {
 	setup: () => Promise<void>;
@@ -12,18 +14,23 @@ export function getCourtDetailsModel(
 ): CourtDetailsModel {
 	const model: CourtDetailsModel = {
 		setup: async () => {
+			pm().courtDetails = {
+				courtDetails: "Court Details",
+				courtName: "Court Name",
+				courtLocation: "Court Location",
+			};
 			pm().onBack = model.onBack;
 			pm().onBook = model.onBook;
 			pm().onNavigate = model.onNavigate;
 		},
 		onBack: function (): void {
-			router.push("/(tabs)/courtsList");
+			routerNav.push("home");
 		},
 		onBook: function (): void {
-			router.push("/(tabs)/reserve");
+			router
 		},
 		onNavigate: function (): void {
-			router.push("/(tabs)/courtDetails");
+			routerNav.push("reserve");
 		},
 	};
 

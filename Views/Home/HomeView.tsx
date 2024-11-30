@@ -30,7 +30,7 @@ export default function HomeView({ pm }: propsType) {
 		>
 			<View style = {styles.container}>
 				<Profile width={38.25} height={38.25}/>
-				<Text style={styles.header}>Hi, Eman Hegab {pm.username}!</Text>
+				<Text style={styles.header}>Hi, {pm.username}!</Text>
 			</View>
 
 			<TouchableOpacity

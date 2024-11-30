@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
 		gap: 10,				
 	},
 	title:{
-		top: 50,
+		top: 65,
 		right: 150,
 	},
 	title_txt:{
@@ -63,7 +63,6 @@ export const styles = StyleSheet.create({
 		color: "#007AFF", 
 	},
 	container: {
-		// flex: 1,
 		alignItems: "center",
 		backgroundColor: "#fff",
 		top: 10,

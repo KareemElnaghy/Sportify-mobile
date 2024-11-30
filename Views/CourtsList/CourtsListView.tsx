@@ -74,7 +74,6 @@ export default function CourtsListView({ pm }: propsType) {
         >
           <Text style={styles.booking_txt}>Book Now</Text>
         </TouchableOpacity>
-        {pm.courtsList.length - 1}
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -103,7 +102,7 @@ export default function CourtsListView({ pm }: propsType) {
         >
           <Text style={styles.booking_txt}>Book Now</Text>
         </TouchableOpacity>
-        {pm.courtsList.length - 1}
+
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -132,7 +131,7 @@ export default function CourtsListView({ pm }: propsType) {
         >
           <Text style={styles.booking_txt}>Book Now</Text>
         </TouchableOpacity>
-        {pm.courtsList.length - 1}
+
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -161,7 +160,7 @@ export default function CourtsListView({ pm }: propsType) {
         >
           <Text style={styles.booking_txt}>Book Now</Text>
         </TouchableOpacity>
-        {pm.courtsList.length - 1}
+ 
       </TouchableOpacity>
     </KeyboardAvoidingView>
   );

@@ -2,6 +2,8 @@ import { PMReserve } from "@/PMs/Reserve/ReservePM";
 
 export interface ReserveModel {
 	setup: () => Promise<void>;
+	
+
 }
 
 export function getReserveModel(pm: () => PMReserve): ReserveModel {
