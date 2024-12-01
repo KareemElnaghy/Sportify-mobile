@@ -1,6 +1,8 @@
 import { pageParamsObj } from "@/libs/Utils/RouterLib";
 import { routerNav } from "@/libs/Utils/RouterLib";
 import { PMHome } from "@/PMs/Home/HomePM";
+import { router } from "expo-router";
+import { getAuthModel } from "../General/AuthModel";
 
 export interface HomePageParams extends pageParamsObj {}
 
@@ -24,6 +26,9 @@ export function getHomeModel(pm: () => PMHome): HomeModel {
       pm().PartyFinder = model.PartyFinder;
       pm().ViewCourts = model.ViewCourts;
       pm().UpcomingReservations = model.UpcomingReservations;
+      const username = (await getAuthModel().getUser()).email;
+
+      pm().username = username.replace("@aucegypt.edu", "");
     },
     Bookings: function (): void {
       routerNav.push("bookings");
@@ -41,7 +46,7 @@ export function getHomeModel(pm: () => PMHome): HomeModel {
       routerNav.push("courts");
     },
     UpcomingReservations: function (): void {
-      throw new Error("Function not implemented.");
+      routerNav.push("reserve");
     },
   };
 

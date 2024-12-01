@@ -45,7 +45,7 @@ export function getCourtsListModel(pm: () => PMCourtsList): CourtsListModel {
       routerNav.push("reserve");
     },
     onBack: function (): void {
-      routerNav.push("home");
+      routerNav.back();
     },
     courtsList: [],
     fetchedParams: {

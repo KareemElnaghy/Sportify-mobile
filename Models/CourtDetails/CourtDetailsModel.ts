@@ -19,17 +19,18 @@ export function getCourtDetailsModel(
 ): CourtDetailsModel {
   const model: CourtDetailsModel = {
     setup: async (params: CourtDetailsParams | {}) => {
-      pm().courtDetails = {
-        courtDetails: "Court Details",
-        courtName: "Court Name",
-        courtLocation: "Court Location",
-      };
+      if (
+        (typeof params == "object" && Object.keys(params).length == 0) ||
+        params === {}
+      )
+        throw "Invalid parameter";
+      pm().courtDetails = params.court;
       pm().onBack = model.onBack;
       pm().onBook = model.onBook;
       pm().onNavigate = model.onNavigate;
     },
     onBack: function (): void {
-      routerNav.push("home");
+      routerNav.back();
     },
     onNavigate: function (): void {
       routerNav.push("reserve");
