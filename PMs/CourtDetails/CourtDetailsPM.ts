@@ -1,23 +1,22 @@
-interface CourtObj {
-    courtDetails: string;
-    courtName: string;
-    courtLocation: string;
-}
+import Court from "@/types/Court";
 
 export interface PMCourtDetails {
-    courtDetails: CourtObj;
-    onBack: () => void;
-    onBook: () => void;
-    onNavigate: () => void;
+  courtDetails: Court;
+  onBack: () => void;
+  onBook: () => void;
+  onNavigate: () => void;
 }
 
 export const default_PMCourtDetails: PMCourtDetails = {
-    courtDetails: {
-        courtDetails: "",
-        courtName: "",
-        courtLocation: ""
-    },
-    onBack: () => {},
-    onBook: () => {},
-    onNavigate: () => {}
+  courtDetails: {
+    name: "",
+    id: 0,
+    sport: "",
+    location: "",
+    description: "",
+    capacity: 0,
+  },
+  onBack: () => {},
+  onBook: () => {},
+  onNavigate: () => {},
 };

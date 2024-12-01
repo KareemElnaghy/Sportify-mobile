@@ -71,7 +71,7 @@ export default function CourtsListView({ pm }: propsType) {
           pm.ViewCourt(pm.courtsList[1]);
         }}
       >
-        {pm.courtsList && pm.courtsList.length > 0 && (
+        {pm.courtsList && pm.courtsList.length > 1 && (
           <>
             <Text style={styles.court_title}>{pm.courtsList[1].name}</Text>
             <View style={styles.location}>
@@ -97,7 +97,7 @@ export default function CourtsListView({ pm }: propsType) {
           pm.ViewCourt(pm.courtsList[2]);
         }}
       >
-        {pm.courtsList && pm.courtsList.length > 0 && (
+        {pm.courtsList && pm.courtsList.length > 2 && (
           <>
             <Text style={styles.court_title}>{pm.courtsList[2].name}</Text>
             <View style={styles.location}>
@@ -123,7 +123,7 @@ export default function CourtsListView({ pm }: propsType) {
           pm.ViewCourt(pm.courtsList[3]);
         }}
       >
-        {pm.courtsList && pm.courtsList.length > 0 && (
+        {pm.courtsList && pm.courtsList.length > 3 && (
           <>
             <Text style={styles.court_title}>{pm.courtsList[3].name}</Text>
             <View style={styles.location}>
